@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Accounts } 'meteor/accounts-base';
+import { Accounts } from 'meteor/accounts-base';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ export default class Signup extends Component {
         {this.state.error ? <p>{this.state.error}</p> : undefined}
         <form onSubmit={this.onSubmit.bind(this)}>
           <input type="email" ref="email" name="email" placeholder="Email"/>
-          <input type="text" ref="email" name="password" placeholder="Password" />
+          <input type="text" ref="password" name="password" placeholder="Password" />
           <button>Create Account</button>
         </form>
         <Link to="/">Already have an account?</Link>
