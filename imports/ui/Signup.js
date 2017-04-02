@@ -16,12 +16,11 @@ export default class Signup extends Component {
     let password = this.refs.password.value.trim();
 
     Accounts.createUser({email , password}, (err) => {
-      console.log('Singup callback', err);
+      // console.log('Singup callback', err);
+      let error = err ? err.reason : '';
+      this.setState({ error });
     });
 
-    // this.setState({
-    //   error: 'Something went wrong.'
-    // });
   }
 
   render() {
