@@ -9,3 +9,25 @@ if (Meteor.isServer) {
     return Links.find({ userId });
   });
 };
+
+Meteor.methods({
+  greetUser(name) {
+    console.log('greetUser is running');
+
+    if (!name) {
+      throw new Meteor.Error('invalid-arguments', 'Name is required');
+    }
+
+    return `Hello ${name}!`;
+  },
+  addNumbers(a, b) {
+    if( typeof a !== 'number' || typeof b !== 'number' ) {
+      throw new Meteor.Error('invalid-arguments', 'Both arguments need to be numeric');
+    }
+
+    return a + b;
+  }
+
+
+
+});

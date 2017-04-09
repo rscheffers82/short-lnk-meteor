@@ -5,6 +5,8 @@ import '../imports/api/links';
 
 
 Meteor.startup(() => {
+
+
   // code to run on server at startup
 
   // -- SimpleSchema example
