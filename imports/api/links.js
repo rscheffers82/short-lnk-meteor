@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-
+import shortid from 'shortid';
 
 
 export const Links = new Mongo.Collection('links');
@@ -28,7 +28,11 @@ Meteor.methods({
       }
     }).validate({ url });
 
-    Links.insert({userId: this.userId, url});
+    Links.insert({
+      _id: shortid.generate(),
+      url,
+      userId: this.userId
+    });
   }
   // greetUser(name) {
   //   console.log('greetUser is running');
