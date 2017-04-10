@@ -31,7 +31,7 @@ export default class Login extends Component {
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate>
           <input type="email" ref="email" name="email" placeholder="Email"/>
-          <input type="text" ref="password" name="password" placeholder="Password" />
+          <input type="password" ref="password" name="password" placeholder="Password" />
           <button>Login</button>
         </form>
 
