@@ -31,7 +31,6 @@ export default class LinkListItem extends Component {
       <div style={{border: 1 + 'px solid #ccc', margin: '10px 0'}}>
         <p>url: {url}</p>
         <p>shortUrl: {shortUrl}</p>
-        <p>{visible.toString()}</p>
         <button ref="copy" data-clipboard-text={shortUrl}>
           {justCopied ? 'Copied' : 'Copy'}
         </button>
