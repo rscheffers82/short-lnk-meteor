@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import Clipboard from 'clipboard';
 
@@ -24,15 +25,20 @@ export default class LinkListItem extends Component {
   };
 
   render() {
-    const { shortUrl, url } = this.props;
+    const { _id, shortUrl, url, visible } = this.props;
     const { justCopied } = this.state;
     return (
-      <div>
+      <div style={{border: 1 + 'px solid #ccc', margin: '10px 0'}}>
         <p>url: {url}</p>
         <p>shortUrl: {shortUrl}</p>
+        <p>{visible.toString()}</p>
         <button ref="copy" data-clipboard-text={shortUrl}>
           {justCopied ? 'Copied' : 'Copy'}
         </button>
+        <button
+          onClick={() => { Meteor.call( 'links.setVisibility', _id, !visible ) }}
+        >
+          {visible ? 'Hide' : 'Unhide'}</button>
       </div>
     );
   }
@@ -43,6 +49,7 @@ LinkListItem.propTypes = {
   url: React.PropTypes.string.isRequired,
   userId: React.PropTypes.string.isRequired,
   shortUrl: React.PropTypes.string.isRequired,
+  visible: React.PropTypes.bool.isRequired
   // visits: React.PropTypes.number.isRequired
 };
 

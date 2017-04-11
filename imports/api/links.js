@@ -3,7 +3,6 @@ import { mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import shortid from 'shortid';
 
-
 export const Links = new Mongo.Collection('links');
 
 // this file is run on both server and client. In order to only run parts on the server use the below.
@@ -31,26 +30,27 @@ Meteor.methods({
     Links.insert({
       _id: shortid.generate(),
       url,
-      userId: this.userId
+      userId: this.userId,
+      visible: true
     });
+  },
+
+  'links.setVisibility'(_id, visible) {
+    const userId = this.userId;
+    if(!userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    new SimpleSchema({
+      _id: {
+        type: String,
+        min: 1
+      },
+      visible: {
+        type: Boolean
+      }
+    }).validate({ _id, visible });
+
+    Links.update({ _id, userId }, { $set: { visible } });
   }
-  // greetUser(name) {
-  //   console.log('greetUser is running');
-  //
-  //   if (!name) {
-  //     throw new Meteor.Error('invalid-arguments', 'Name is required');
-  //   }
-  //
-  //   return `Hello ${name}!`;
-  // },
-  // addNumbers(a, b) {
-  //   if( typeof a !== 'number' || typeof b !== 'number' ) {
-  //     throw new Meteor.Error('invalid-arguments', 'Both arguments need to be numeric');
-  //   }
-  //
-  //   return a + b;
-  // }
-
-
-
 });
