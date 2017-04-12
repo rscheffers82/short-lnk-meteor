@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Session } from 'meteor/session';
+import { Tracker } from 'meteor/tracker';
 
 export default class LinkListFilter extends Component {
   constructor(props) {
