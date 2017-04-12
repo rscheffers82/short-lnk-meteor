@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Session } from 'meteor/session';
 
-export default () => {
-  const flip = (e) => {
-    Session.set('showVisible', !e.target.checked);
+export default class LinkListFilter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showHidden: false
+    }
   }
-  return (
-    <div>
-      <label>
-        <input type="checkbox" onChange={flip}/>
-        Show hidden links
-      </label>
-    </div>
-  );
+
+  componentDidUpdate() {
+    Session.set('showVisible', !this.state.showHidden);
+  }
+
+  onChange(e) { this.setState({ showHidden: e.target.checked }); }
+
+  render() {
+    let { showHidden } = this.state;
+    return (
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={showHidden}
+            onChange={this.onChange.bind(this)}/>
+          Show hidden links
+        </label>
+      </div>
+    );
+  }
 };
