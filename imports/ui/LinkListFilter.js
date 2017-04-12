@@ -5,25 +5,29 @@ export default class LinkListFilter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showHidden: false
+      showVisible: true
     }
   }
 
-  componentDidUpdate() {
-    Session.set('showVisible', !this.state.showHidden);
+  componentDidMount() {
+    this.showVisibleTracker = Tracker.autorun(() => {
+      this.setState({ showVisible: Session.get('showVisible') });
+    });
   }
 
-  onChange(e) { this.setState({ showHidden: e.target.checked }); }
+  componentWillUnmount() {
+    this.showVisibleTracker.stop();
+  }
 
   render() {
-    let { showHidden } = this.state;
+    let { showVisible } = this.state;
     return (
       <div>
         <label>
           <input
             type="checkbox"
-            checked={showHidden}
-            onChange={this.onChange.bind(this)}/>
+            checked={!showVisible}
+            onChange={() => { Session.set('showVisible', !showVisible); }}/>
           Show hidden links
         </label>
       </div>
