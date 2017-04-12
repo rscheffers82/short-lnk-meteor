@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import LinksList from './LinksList';
+
 import PrivateHeader from './PrivateHeader';
-import AddLink from './AddLink';
 import LinkListFilter from './LinkListFilter';
+import AddLink from './AddLink';
+import LinksList from './LinksList';
 
 export default () => {
   return(
     <div>
       <PrivateHeader title="Your Links" />
       <LinkListFilter />
-      <LinksList />
       <AddLink />
+      <LinksList />
     </div>
   );
 };
