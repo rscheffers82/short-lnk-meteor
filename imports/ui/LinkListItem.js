@@ -47,6 +47,9 @@ export default class LinkListItem extends Component {
         <p>url: {url}</p>
         <p>shortUrl: {shortUrl}</p>
         {this.renderStats()}
+        <a href={shortUrl} target="_blank">
+          Visit
+        </a>
         <button ref="copy" data-clipboard-text={shortUrl}>
           {justCopied ? 'Copied' : 'Copy'}
         </button>
