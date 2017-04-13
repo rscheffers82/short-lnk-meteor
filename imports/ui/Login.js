@@ -28,7 +28,8 @@ export default class Login extends Component {
         <h1>Short Lnk</h1>
 
         {this.state.error ? <p>{this.state.error}</p> : undefined}
-
+        <p>Wanna try? Login as guest!</p>
+        <p>Email: guest@gmail.com - Pwd: Guest123!</p>
         <form onSubmit={this.onSubmit.bind(this)} noValidate>
           <input type="email" ref="email" name="email" placeholder="Email"/>
           <input type="password" ref="password" name="password" placeholder="Password" />
