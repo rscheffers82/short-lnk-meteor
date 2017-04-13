@@ -24,8 +24,9 @@ export default class LinkListFilter extends Component {
     let { showVisible } = this.state;
     return (
       <div>
-        <label>
+        <label className="checkbox">
           <input
+            className="checkbox__box"
             type="checkbox"
             checked={!showVisible}
             onChange={() => { Session.set('showVisible', !showVisible); }}/>
