@@ -31,7 +31,7 @@ export default class AddLink extends Component {
   }
 
   handleModelClose() {
-    this.setState({ 
+    this.setState({
       url: '',
       isOpen: false,
       error: ''
@@ -42,7 +42,7 @@ export default class AddLink extends Component {
     let { url, isOpen, error } = this.state;
     return (
       <div>
-        <button onClick={() => this.setState({ isOpen: true }) }>
+        <button className="button" onClick={() => this.setState({ isOpen: true }) }>
           + Add Link
         </button>
         <Modal
