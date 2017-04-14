@@ -28,8 +28,15 @@ export default class LinksList extends Component {
   }
 
   renderLinksListItems() {
-    return this.state.links.map((link) => {
-      // console.log(link);
+    const { links } = this.state;
+
+    if (links.length === 0) return (
+      <div className="item">
+        <p className="item__status-message">No Links Found</p>
+      </div>
+    );
+
+    return links.map((link) => {
       const shortUrl = Meteor.absoluteUrl(link._id);
       return <LinksListItem key={link._id} shortUrl={shortUrl} {...link} />;
     });
@@ -38,11 +45,8 @@ export default class LinksList extends Component {
   render() {
     return (
       <div>
-        <p>Links List</p>
         <FlipMove maintainContainerHeight={true}>
-          {/* <div> */}
             {this.renderLinksListItems()}
-          {/* </div> */}
         </FlipMove>
       </div>
     );

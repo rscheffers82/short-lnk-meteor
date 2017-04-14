@@ -35,7 +35,7 @@ export default class LinkListItem extends Component {
     }
 
     return (
-      <p>{visitedCount} {visitMessage} {visitedMessage}</p>
+      <p className="item__message">{visitedCount} {visitMessage} {visitedMessage}</p>
     );
   }
 
@@ -43,9 +43,9 @@ export default class LinkListItem extends Component {
     const { _id, shortUrl, url, visible, visitedCount, lastVisitedAt } = this.props;
     const { justCopied } = this.state;
     return (
-      <div style={{border: 1 + 'px solid #ccc', margin: '10px 0'}}>
-        <p>url: {url}</p>
-        <p>shortUrl: {shortUrl}</p>
+      <div className="item">
+        <h2>{url}</h2>
+        <p className="item__message">{shortUrl}</p>
         {this.renderStats()}
         <a className="button button--pill button--link" href={shortUrl} target="_blank">
           Visit

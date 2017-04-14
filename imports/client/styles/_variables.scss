@@ -1,5 +1,7 @@
 // --- Colors --- \\
 $grey: #ddd;
+$light-grey: #f9f9f9;
+$dark-grey: #777;
 $white: #fff;
 $brand-primary: #5b3681;
 
@@ -11,7 +13,7 @@ $site-max-width: 50rem;
 
 // --- font sizes --- \\
 $base-font-size: 1.4rem;
-
+$large-font-size: 1.8rem;
 
 // --- font sizes --- \\
 $header-bg: $brand-primary;
@@ -32,6 +34,12 @@ $boxed-view-bg: $white;
 $button-bg: $brand-primary;
 $button-color: $white;
 $button-pill-color: $brand-primary;
-$button-secondary-bg: #f9f9f9;
-$button-secondary-color: #777;
+$button-secondary-bg: $light-grey;
+$button-secondary-color: $dark-grey;
 $button-secondary-border-color: $grey;
+
+
+// --- Item --- \\
+$item-bg: $light-grey;
+$item-border: darken($item-bg, 10%);
+$item-text-color: $dark-grey;
