@@ -3,17 +3,25 @@ $grey: #ddd;
 $white: #fff;
 $brand-primary: #5b3681;
 
+
 // --- Spacing --- \\
 $space: 1.4rem;
 $site-max-width: 50rem;
+
 
 // --- font sizes --- \\
 $base-font-size: 1.4rem;
 
 
+// --- font sizes --- \\
+$header-bg: $brand-primary;
+$header-color: $white;
+
+
 // --- Form inputs --- \\
 $input-border: $grey;
 $input-spacing: 1rem;
+
 
 // --- Boxed view --- \\
 $boxed-view-overlay-bg: $grey;
