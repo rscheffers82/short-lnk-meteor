@@ -8,7 +8,7 @@ import LinksList from './LinksList';
 export default () => {
   return(
     <div>
-      <PrivateHeader title="Your Links" />
+      <PrivateHeader title="Short Lnk" />
       <div className="page-content">
         <LinkListFilter />
         <AddLink />
